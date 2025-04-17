@@ -1,11 +1,17 @@
 import TodoItem from "./components/TodoItem";
 import TodoInput from "./components/TodoInput";
+
+//custom hooks
 import useTodoManager from "./hooks/useTodoManager";
+import useRenderCount from "./hooks/useRenderCount";
 
 export default function App() {
   const { tasks, addTask, deleteTask, toggleTask } = useTodoManager();
 
   const allComplete = tasks.every((task) => task.completed);
+
+  const renderCount = useRenderCount();
+  console.log(`Render count: ${renderCount}`);
 
   return (
     <div className="min-h-screen bg-gray-100 p-6 flex flex-col items-center">
@@ -28,6 +34,9 @@ export default function App() {
         )}
 
         <TodoInput onAdd={addTask} />
+        <p className="text-sm text-gray-500 text-center">
+          Render Count: {renderCount}
+        </p>
       </div>
     </div>
   );

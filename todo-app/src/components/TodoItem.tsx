@@ -1,4 +1,3 @@
-// File: src/components/TodoItem.tsx
 import Button from './Button';
 
 type TodoItemProps = {
@@ -8,6 +7,7 @@ type TodoItemProps = {
   onToggle: (id: number) => void;
   onDelete: (id: number) => void;
 };
+
 
 export default function TodoItem({ id, text, completed, onToggle, onDelete }: TodoItemProps) {
   return (
