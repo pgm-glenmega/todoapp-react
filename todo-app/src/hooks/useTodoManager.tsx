@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 
 // Define the shape of a Task object
 export type Task = {
@@ -49,6 +49,11 @@ export default function useTodoManager(initialTasks: Task[] = []) {
     );
   };
 
+    // Check if all tasks in the list are marked as completed
+    const allComplete = useMemo(() => {
+      return tasks.length > 0 && tasks.every((task) => task.completed);
+    }, [tasks]);
+
   // Return state and handler functions to the component that uses this hook
-  return { tasks, addTask, deleteTask, toggleTask };
+  return { tasks, addTask, deleteTask, toggleTask, allComplete };
 }
