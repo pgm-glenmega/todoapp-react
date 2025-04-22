@@ -19,13 +19,11 @@ type TodoItemProps = {
 export default function TodoItem({
   id,
   text,
-  initialCompleted,
   onDelete,
 }: TodoItemProps) {
   // ✅ This is the local checkbox state
   // We use useState to keep track of whether *this one* item is checked or not
   // This keeps state local and avoids re-rendering the entire App when toggled
-  console.log("initialCompleted", initialCompleted);
   const [completed, setCompleted] = useState(
     localStorage.getItem(`todo-${id}-completed`) === "true"
   );
