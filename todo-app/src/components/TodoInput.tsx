@@ -50,16 +50,6 @@ export default function TodoInput({ onAdd }: Props) {
           Add
         </button>
       </div>
-
-      {/* Checkbox to pre-mark task as completed */}
-      <label className="flex items-center gap-2 text-sm text-gray-700">
-        <input
-          type="checkbox"
-          checked={isCompleted}
-          onChange={() => setIsCompleted(!isCompleted)}
-        />
-        Mark as completed
-      </label>
     </div>
   );
 }
